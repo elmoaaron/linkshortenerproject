@@ -1,88 +1,127 @@
-import Image from "next/image";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
-import { Button } from "@/components/ui/button";
+import {
+  BarChart3,
+  Link2,
+  Lock,
+  Moon,
+  Shield,
+  Zap,
+} from "lucide-react";
+import type { Metadata } from "next";
+import { LandingCta } from "@/components/landing-cta";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "LinkShort — Short links that work",
+  },
+  description:
+    "Create, manage, and track short links with a secure dashboard. Built for speed and simplicity.",
+};
+
+const features = [
+  {
+    title: "Instant short links",
+    description:
+      "Turn long URLs into clean, shareable short links in seconds from your dashboard.",
+    icon: Link2,
+  },
+  {
+    title: "Secure by default",
+    description:
+      "Sign in with Clerk. Your links and account stay protected without DIY auth.",
+    icon: Lock,
+  },
+  {
+    title: "Personal dashboard",
+    description:
+      "Manage every link in one place — create, review, and keep your list organized.",
+    icon: Shield,
+  },
+  {
+    title: "Fast redirects",
+    description:
+      "Lightweight redirects so visitors land on the right destination with minimal delay.",
+    icon: Zap,
+  },
+  {
+    title: "Click insights",
+    description:
+      "Track how your links perform so you know what gets shared and what converts.",
+    icon: BarChart3,
+  },
+  {
+    title: "Light & dark mode",
+    description:
+      "A clean UI that follows your system theme, or switch manually anytime.",
+    icon: Moon,
+  },
+] as const;
 
 export default async function Home() {
   const { userId } = await auth();
   if (userId) redirect("/dashboard");
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <div className="flex flex-1 flex-col bg-background text-foreground">
+      <section className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 px-6 py-20 text-center sm:py-28">
+        <p className="rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+          Link shortener for modern teams
+        </p>
+        <div className="flex max-w-2xl flex-col gap-4">
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            Short links. Clear dashboard. Zero friction.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg text-muted-foreground sm:text-xl">
+            Create and manage short URLs in one place. Sign up free, open your
+            dashboard, and share links that stay under your control.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <Button
-            size="lg"
-            className="w-full md:w-[158px]"
-            nativeButton={false}
-            render={
-              <a
-                href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                target="_blank"
-                rel="noopener noreferrer"
+        <LandingCta />
+      </section>
+
+      <section className="border-t border-border bg-muted/40">
+        <div className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-20">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Everything you need to share smarter
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Built on Next.js, Clerk, and Postgres so auth, data, and UI stay
+              simple as you grow.
+            </p>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map(({ title, description, icon: Icon }) => (
+              <li
+                key={title}
+                className="flex flex-col gap-3 rounded-xl border border-border bg-card p-5 text-left shadow-xs"
               >
-                <Image
-                  className="dark:invert h-[14px] w-4"
-                  src="/vercel.svg"
-                  alt="Vercel logomark"
-                  width={16}
-                  height={14}
-                />
-                Deploy Now
-              </a>
-            }
-          />
-          <Button
-            variant="outline"
-            size="lg"
-            className="w-full md:w-[158px]"
-            nativeButton={false}
-            render={
-              <a
-                href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Documentation
-              </a>
-            }
-          />
+                <div className="flex size-9 items-center justify-center rounded-lg border border-border bg-background">
+                  <Icon className="size-4 text-foreground" aria-hidden />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="font-medium tracking-tight">{title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-      </main>
+      </section>
+
+      <section className="mx-auto flex w-full max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center sm:py-20">
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          Ready to shorten your first link?
+        </h2>
+        <p className="max-w-md text-muted-foreground">
+          Create an account, open the dashboard, and start sharing clean URLs
+          in under a minute.
+        </p>
+        <LandingCta primaryLabel="Create your account" showSignIn={false} />
+      </section>
     </div>
   );
 }
