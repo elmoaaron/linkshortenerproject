@@ -1,3 +1,8 @@
+---
+description: Authentication guidelines for Clerk.
+applyTo: "{proxy.ts,app/**/*.ts,app/**/*.tsx,components/**/*.ts,components/**/*.tsx}"
+---
+
 # Authentication (Clerk)
 
 ## Stack
@@ -5,12 +10,12 @@
 - Clerk is the **only** auth mechanism in this app. Do not add custom
   sessions, JWT handling, NextAuth, or any other auth library/flow.
 - `@clerk/nextjs` (v7) for auth/session handling, `@clerk/ui` for themed
-  Clerk components (`shadcn` theme — see [styling-ui.md](./styling-ui.md)).
+  Clerk components (`shadcn` theme — see [styling-ui.instructions.md](./styling-ui.instructions.md)).
 
 ## Where auth lives
 
 - Route-level protection runs in [proxy.ts](../proxy.ts) via `clerkMiddleware()`
-  — **not** `middleware.ts` (see [nextjs-conventions.md](./nextjs-conventions.md)
+  — **not** `middleware.ts` (see [nextjs-conventions.instructions.md](./nextjs-conventions.instructions.md)
   for why). Keep the existing `matcher` config's asset-exclusion pattern and
   the `/(api|trpc)(.*)` / `/__clerk/:path*` entries when editing it.
 - `app/layout.tsx` wraps the whole app in `<ClerkProvider appearance={{ theme:

@@ -14,23 +14,24 @@ This is a link shortener app built on Next.js 16 (App Router), React 19,
 TypeScript, Clerk (auth), Drizzle ORM + Neon (Postgres), and Tailwind v4 +
 shadcn/ui (base-nova style, `@base-ui/react` primitives).
 
-Detailed, topic-specific coding standards live in `/docs`. **Before generating
+Detailed, topic-specific coding standards live in `.github/instructions`. **Before generating
 ANY code**, you MUST read the individual instructions file(s) below relevant
 to the area you're touching — this is not optional, skipping this step is the
 most common cause of non-compliant changes:
 
-- [docs/nextjs-conventions.md](docs/nextjs-conventions.md) — App Router
+- [.github/instructions/nextjs-conventions.instructions.md](.github/instructions/nextjs-conventions.instructions.md) — App Router
   conventions specific to this Next.js version: `proxy.ts` (not
   `middleware.ts`), async `params`/`searchParams`, `PageProps`/`LayoutProps`
   helpers, Server Components by default, metadata, root layout.
-- [docs/typescript-react.md](docs/typescript-react.md) — TypeScript strict
+- [.github/instructions/typescript-react.instructions.md](.github/instructions/typescript-react.instructions.md) — TypeScript strict
   mode, component/export conventions, linting.
-- [docs/styling-ui.md](docs/styling-ui.md) — Tailwind v4, shadcn/ui,
+- [.github/instructions/styling-ui.instructions.md](.github/instructions/styling-ui.instructions.md) — Tailwind v4, shadcn/ui,
   `cn` class merging, icons, Clerk theming.
-- [docs/database.md](docs/database.md) — Drizzle ORM + Neon schema,
+- [.github/instructions/database.instructions.md](.github/instructions/database.instructions.md) — Drizzle ORM + Neon schema,
   client usage, and migration workflow.
-- [docs/auth.md](docs/auth.md) — Clerk setup: proxy-based route protection,
+- [.github/instructions/auth.instructions.md](.github/instructions/auth.instructions.md) — Clerk setup: proxy-based route protection,
   provider/UI conventions, session access.
+- [.github/instructions/data-fetching.instructions.md](.github/instructions/data-fetching.instructions.md) — server-component data fetching through helpers in `data/`.
 
 ## Quick global rules
 

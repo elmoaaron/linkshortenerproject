@@ -1,3 +1,8 @@
+---
+description: Database guidelines for Drizzle ORM and Neon.
+applyTo: "{db/**/*.ts,data/**/*.ts,app/**/*.ts,app/**/*.tsx}"
+---
+
 # Database (Drizzle ORM + Neon)
 
 ## Stack
@@ -20,7 +25,7 @@
   never hardcode connection strings or commit real credentials.
 - Only use the `db` client from Server Components, Server Actions, or Route
   Handlers. Never import it into a `"use client"` component (see
-  [nextjs-conventions.md](./nextjs-conventions.md)).
+  [nextjs-conventions.instructions.md](./nextjs-conventions.instructions.md)).
 - Keep database reads in helpers under `data/` and call them from Server
   Components rather than querying in components. [getUserLinks](../data/links.ts)
   gets the current Clerk user, rejects unauthenticated access, and selects only

@@ -1,3 +1,8 @@
+---
+description: Tailwind, shadcn/ui, and visual conventions for the project.
+applyTo: "{app/**/*.ts,app/**/*.tsx,app/**/*.css,components/**/*.ts,components/**/*.tsx,components/**/*.css}"
+---
+
 # Styling &amp; UI Components
 
 ## Tailwind CSS v4

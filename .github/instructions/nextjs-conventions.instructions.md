@@ -1,3 +1,8 @@
+---
+description: Next.js App Router conventions for this project.
+applyTo: "{app/**/*.ts,app/**/*.tsx,proxy.ts}"
+---
+
 # Next.js Conventions
 
 This project runs **Next.js 16.3.5 (App Router)** with **React 19**. This version has
@@ -30,7 +35,7 @@ that matter most for this codebase. When in doubt, check
 
 - Components are Server Components unless they need hooks, event handlers, or
   browser-only APIs — only then add `"use client"` at the top of the file.
-- Never import the Drizzle `db` client (see [database.md](./database.md)) into a
+- Never import the Drizzle `db` client (see [database.instructions.md](./database.instructions.md)) into a
   Client Component.
 
 ## Metadata
@@ -49,6 +54,6 @@ that matter most for this codebase. When in doubt, check
 - `page.tsx`, `layout.tsx` — standard route/layout files.
 - `app/sign-in/[[...sign-in]]/page.tsx`, `app/sign-up/[[...sign-up]]/page.tsx` —
   Clerk's optional catch-all convention; keep these exact paths (see
-  [auth.md](./auth.md)).
+  [auth.instructions.md](./auth.instructions.md)).
 - Add `loading.tsx` / `error.tsx` per route segment only when a segment
   actually needs a loading or error boundary — don't scaffold them speculatively.

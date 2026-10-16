@@ -3,4 +3,4 @@ name: create-instructions
 description: create-instructions
 disable-model-invocation: true
 ---
-take the information below and generate an agent instructions .md file for it in the /docs directory. If a .md filename is provided, use that, otherwise generate an appropiate filename bases on the generated content, Make sure the instructions are concise and not too long. Make sure to update the AGENTS.md file to reference thie new docs file. If no information is provided below, prompt the user to give the necessary details about the layer fo architecture or coding standards to document. 
+Take the information below and generate a concise `.instructions.md` file in `.github/instructions`, including a suitable `applyTo` frontmatter pattern. If a filename is provided, use it with the `.instructions.md` suffix; otherwise derive an appropriate kebab-case filename from the content. Update `.github/copilot-instructions.md` to reference the new guidance. If no information is provided, ask the user for the architectural layer or coding standards to document.

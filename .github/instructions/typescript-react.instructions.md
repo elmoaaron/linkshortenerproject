@@ -1,3 +1,8 @@
+---
+description: TypeScript, React, and linting standards for the project.
+applyTo: "**/*.{ts,tsx}"
+---
+
 # TypeScript &amp; React Standards
 
 ## TypeScript
@@ -38,4 +43,4 @@
   under `components/ui/` use lowercase/kebab-case filenames
   (e.g. `button.tsx`) with PascalCase exported component names.
 - Route folders/files follow Next.js App Router conventions (see
-  [nextjs-conventions.md](./nextjs-conventions.md)), not free-form naming.
+  [nextjs-conventions.instructions.md](./nextjs-conventions.instructions.md)), not free-form naming.
