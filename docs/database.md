@@ -21,6 +21,12 @@
 - Only use the `db` client from Server Components, Server Actions, or Route
   Handlers. Never import it into a `"use client"` component (see
   [nextjs-conventions.md](./nextjs-conventions.md)).
+- Keep database reads in helpers under `data/` and call them from Server
+  Components rather than querying in components. [getUserLinks](../data/links.ts)
+  gets the current Clerk user, rejects unauthenticated access, and selects only
+  that user's links, newest first (with descending IDs to break timestamp ties).
+  The [dashboard](../app/dashboard/page.tsx) renders the short code, destination,
+  and creation date, or an empty state when the user has no saved links.
 
 ## Migrations
 
