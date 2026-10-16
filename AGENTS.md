@@ -34,6 +34,10 @@ most common cause of non-compliant changes:
 
 ## Quick global rules
 
+- **NEVER create or use `middleware.ts`.** The middleware file convention is
+  deprecated in Next.js 16, including this project's Next.js 16.3.5 version.
+  Use the existing root [proxy.ts](proxy.ts) for request interception and
+  Clerk route protection instead.
 - Prefer editing existing files over creating new ones; only add a new file
   when the project genuinely needs it.
 - Run `npm run lint` after making changes and fix any reported issues.

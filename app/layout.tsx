@@ -34,7 +34,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
-          <ClerkProvider appearance={{ theme: shadcn }}>
+          <ClerkProvider
+            appearance={{ theme: shadcn }}
+            signInForceRedirectUrl="/dashboard"
+            signUpForceRedirectUrl="/dashboard"
+          >
             <header className="flex items-center justify-end gap-4 border-b border-border px-6 py-3">
               <Show when="signed-out">
                 <SignInButton mode="modal" />

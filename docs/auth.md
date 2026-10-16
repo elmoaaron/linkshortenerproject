@@ -25,6 +25,11 @@
   page navigation. Use Clerk's `<SignInButton mode="modal">` /
   `<SignUpButton mode="modal">` (or the equivalent `useClerk().openSignIn()` /
   `openSignUp()` calls) everywhere a sign-in/up trigger is rendered.
+- `ClerkProvider` sets `signInForceRedirectUrl` and `signUpForceRedirectUrl`
+  to `/dashboard` so all sign-in/up flows navigate there immediately after
+  authentication, including modals and switching between sign-in and sign-up.
+  Keep these provider-level settings rather than duplicating redirect props
+  on individual triggers or relying on a homepage refresh.
 
 ## Protecting data and routes
 
